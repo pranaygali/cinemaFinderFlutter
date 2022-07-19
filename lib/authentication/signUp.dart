@@ -23,7 +23,6 @@ class _createAcountState extends State<createAcount> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
- // Uint8List? _image;
 
   @override
   void dispose() {
@@ -42,7 +41,6 @@ class _createAcountState extends State<createAcount> {
       email: emailController.text,
       password: passwordController.text,
       confirmPassword: confirmPasswordController.text,
-      //  file: _image!
     );
     //res is from the authmethods class
     if (res == "signup success") {
@@ -88,16 +86,6 @@ class _createAcountState extends State<createAcount> {
     print(res);
   }
 
-// function to select the image, during the signup
-  // void selectImage() async {
-  //   Uint8List photo =
-  //       await chooseImage(ImageSource.gallery, ImageSource.camera);
-
-  //   setState(() {
-  //     _image = photo;
-  //   });
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,14 +97,8 @@ class _createAcountState extends State<createAcount> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                /*
-                  Flexible(
-                    child: Container(),
-                    flex: 1,
-                  ),
-                  */
                 SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Text(
                   'Cinema Finder',
@@ -126,12 +108,7 @@ class _createAcountState extends State<createAcount> {
                       fontFamily: 'IbarraRealNova'),
                 ),
                 SizedBox(
-                  height: 10,
-                ),
-
-
-                SizedBox(
-                  height: 5,
+                  height: 50,
                 ),
                 Text('Create an account',
                     style: TextStyle(
@@ -139,7 +116,7 @@ class _createAcountState extends State<createAcount> {
                         fontWeight: FontWeight.bold,
                         fontFamily: 'IbarraRealNova')),
                 SizedBox(
-                  height: 30,
+                  height: 40,
                 ),
                 textFields(
                     textEditingController: fullNameController,
@@ -164,7 +141,6 @@ class _createAcountState extends State<createAcount> {
                 SizedBox(
                   height: 20,
                 ),
-                
 
                 textFields(
                   textEditingController: passwordController,
@@ -175,7 +151,7 @@ class _createAcountState extends State<createAcount> {
                 SizedBox(
                   height: 20,
                 ),
-               
+
                 textFields(
                   textEditingController: confirmPasswordController,
                   labalText: 'confirm your password',
@@ -183,13 +159,12 @@ class _createAcountState extends State<createAcount> {
                   isObscure: true,
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 MaterialButton(
                   minWidth: double.infinity,
                   height: 60,
                   onPressed: signUpUser,
-
                   color: Colors.red,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
