@@ -129,28 +129,6 @@ class _createAcountState extends State<createAcount> {
                   height: 10,
                 ),
 
-                // Stack(
-                //   children: [
-                //     _image != null
-                //         ? CircleAvatar(
-                //             radius: 64,
-                //             backgroundImage: MemoryImage(_image!),
-                //           )
-                //         : CircleAvatar(
-                //             backgroundImage: AssetImage('assets/avatar.jpeg'),
-                //             radius: 64,
-                //           ),
-                //     Positioned(
-                //       bottom: -10,
-                //       left: 80,
-                //       child: IconButton(
-                //         onPressed: selectImage,
-                //         icon: Icon(Icons.add_a_photo),
-                //         color: Colors.red,
-                //       ),
-                //     ),
-                //   ],
-                // ),
 
                 SizedBox(
                   height: 5,
