@@ -1,4 +1,4 @@
-import 'package:cinemafinder/authentication/login.dart';
+import 'package:cinemafinder/authentication/loginUI.dart';
 import 'package:cinemafinder/authentication/signUp.dart';
 import 'package:flutter/material.dart';
 

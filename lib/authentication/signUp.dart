@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:cinemafinder/authentication/authMethods.dart';
-import 'package:cinemafinder/authentication/login.dart';
+import 'package:cinemafinder/authentication/loginUI.dart';
 import 'package:cinemafinder/reusables/imageUpload.dart';
 import 'package:cinemafinder/reusables/snackbars.dart';
 import 'package:cinemafinder/reusables/textFields.dart';
@@ -24,6 +24,8 @@ class _createAcountState extends State<createAcount> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
   Uint8List? _image;
+  // RegExp regex =
+  //     RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
 
   @override
   void dispose() {
@@ -37,13 +39,13 @@ class _createAcountState extends State<createAcount> {
 
   void signUpUser() async {
     String res = await AuthMethods().signUpUser(
-        fullName: fullNameController.text,
-        contactNumber: contactNumberController.text,
-        email: emailController.text,
-        password: passwordController.text,
-        confirmPassword: confirmPasswordController.text,
+      fullName: fullNameController.text,
+      contactNumber: contactNumberController.text,
+      email: emailController.text,
+      password: passwordController.text,
+      confirmPassword: confirmPasswordController.text,
       //  file: _image!
-        );
+    );
     //res is from the authmethods class
     if (res == "signup success") {
       showDialog(
@@ -186,21 +188,62 @@ class _createAcountState extends State<createAcount> {
                 SizedBox(
                   height: 20,
                 ),
-                textFields(
-                  textEditingController: passwordController,
-                  labalText: 'Enter your password',
-                  textInputType: TextInputType.text,
-                  isObscure: true,
-                ),
+                // TextFormField(
+                //   validator: (value) => value == null || value.length < 8
+                //       ? 'Enter minimum 8 characters'
+                //       : !regex.hasMatch(value)
+                //           ? 'Should contain \nOne Upper Case, \nOne Lower Case, \nOne Digit, \nOne Special Character'
+                //           : null,
+                //   controller: passwordController,
+                //   decoration: InputDecoration(
+                //     // hintText: hintText,
+                //     // labelText: hintText,
+                //     border: OutlineInputBorder(
+                //       borderSide: Divider.createBorderSide(context),
+                //     ),
+                //     filled: false,
+                //     labelText: 'Enter your password',
+                //     contentPadding: EdgeInsets.all(8),
+                //   ),
+                //   keyboardType: TextInputType.text,
+                //   obscureText: true,
+                // ),
+
+                // textFields(
+                //   textEditingController: passwordController,
+                //   labalText: 'Enter your password',
+                //   textInputType: TextInputType.text,
+                //   isObscure: true,
+                // ),
                 SizedBox(
                   height: 20,
                 ),
-                textFields(
-                  textEditingController: confirmPasswordController,
-                  labalText: 'confirm your password',
-                  textInputType: TextInputType.text,
-                  isObscure: true,
-                ),
+                // TextFormField(
+                //   validator: (value) => value == null || value.length < 8
+                //       ? 'Enter minimum 8 characters'
+                //       : !regex.hasMatch(value)
+                //           ? 'Should contain \nOne Upper Case, \nOne Lower Case, \nOne Digit, \nOne Special Character'
+                //           : null,
+                //   controller: confirmPasswordController,
+                //   decoration: InputDecoration(
+                //     // hintText: hintText,
+                //     // labelText: hintText,
+                //     border: OutlineInputBorder(
+                //       borderSide: Divider.createBorderSide(context),
+                //     ),
+                //     filled: false,
+                //     labelText: 'Enter your password',
+                //     contentPadding: EdgeInsets.all(8),
+                //   ),
+                //   keyboardType: TextInputType.text,
+                //   obscureText: true,
+                // ),
+                // textFields(
+                //   textEditingController: confirmPasswordController,
+                //   labalText: 'confirm your password',
+                //   textInputType: TextInputType.text,
+                //   isObscure: true,
+                // ),
                 SizedBox(
                   height: 20,
                 ),

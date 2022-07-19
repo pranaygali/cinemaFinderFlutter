@@ -1,3 +1,6 @@
+//import 'dart:html';
+
+import 'package:cinemafinder/authentication/resetPassword.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +16,7 @@ class _userProfileState extends State<userProfile> {
   String fullName = "";
   String contactNumber = "";
   String email = "";
+  String name = "";
 
   @override
   void initState() {
@@ -32,6 +36,7 @@ class _userProfileState extends State<userProfile> {
       fullName = (snap.data() as Map<String, dynamic>)['fullName'];
       contactNumber = (snap.data() as Map<String, dynamic>)['contactNumber'];
       email = (snap.data() as Map<String, dynamic>)['email'];
+      //   name = (snap.data() as Map<String, dynamic>)['name'];
     });
   }
 
@@ -137,7 +142,12 @@ class _userProfileState extends State<userProfile> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => resetPassword()));
+                  },
                   child: Row(
                     children: [Icon(Icons.edit), Text('Change Password')],
                   ),

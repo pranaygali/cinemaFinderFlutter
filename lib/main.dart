@@ -1,5 +1,5 @@
 import 'package:cinemafinder/admin/adminHome.dart';
-import 'package:cinemafinder/authentication/login.dart';
+import 'package:cinemafinder/authentication/loginUI.dart';
 import 'package:cinemafinder/authentication/signUp.dart';
 import 'package:cinemafinder/userView/homeScreen.dart';
 import 'package:cinemafinder/welcomeScreens/splashScreen.dart';

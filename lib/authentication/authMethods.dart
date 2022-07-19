@@ -17,7 +17,7 @@ class AuthMethods {
     required String email,
     required String password,
     required String confirmPassword,
-  //  required Uint8List file,
+    //  required Uint8List file,
   }) async {
     String res = "An error occured";
 
@@ -28,6 +28,7 @@ class AuthMethods {
               password.isNotEmpty &&
               confirmPassword.isNotEmpty &&
               (password == confirmPassword)
+          //  && (password.length > 8)
           // file != null
           ) {
         UserCredential userDetails = await _auth.createUserWithEmailAndPassword(
@@ -37,7 +38,7 @@ class AuthMethods {
         // Exclamation is used because, the user can be returned as null
 
         // adding image to the storage
-      //  String photoUrl =   await FileStorage().uploadImage('profilePics', file, false);
+        //  String photoUrl =   await FileStorage().uploadImage('profilePics', file, false);
 
         //add user to the database
         _firestore.collection('users').doc(userDetails.user!.uid).set({
@@ -47,7 +48,7 @@ class AuthMethods {
           'email': email,
           'password': password,
           'confirmPassword': confirmPassword,
-        //  'photoUrl': photoUrl,
+          //  'photoUrl': photoUrl,
         });
         res = "signup success";
       } else if (password != confirmPassword) {
@@ -59,25 +60,7 @@ class AuthMethods {
     } catch (err) {
       res = err.toString();
     }
+
     return res;
   }
-
-  //login a user
-
-  // Future<String> loginUser(
-  //     {required String email, required String password}) async {
-  //   String res = "An error occured";
-  //   try {
-  //     if (email.isNotEmpty && password.isNotEmpty) {
-  //       await _auth.signInWithEmailAndPassword(
-  //           email: email, password: password);
-  //       res = "logged in";
-  //     } else {
-  //       res = "Sorry, all the details are required";
-  //     }
-  //   } catch (err) {
-  //     res = err.toString();
-  //   }
-  //   return res;
-  // }
 }
