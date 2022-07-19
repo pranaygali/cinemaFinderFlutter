@@ -36,7 +36,6 @@ class _userProfileState extends State<userProfile> {
       fullName = (snap.data() as Map<String, dynamic>)['fullName'];
       contactNumber = (snap.data() as Map<String, dynamic>)['contactNumber'];
       email = (snap.data() as Map<String, dynamic>)['email'];
-      //   name = (snap.data() as Map<String, dynamic>)['name'];
     });
   }
 
@@ -56,16 +55,10 @@ class _userProfileState extends State<userProfile> {
       ),
       body: SingleChildScrollView(
         child: Column(
-          //   mainAxisAlignment: MainAxisAlignment.center,
-          //  crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
               height: 50,
             ),
-            // CircleAvatar(
-            //   backgroundImage: AssetImage('assets/Acharya.jpeg'),
-            //   radius: 94,
-            // ),
             SizedBox(
               height: 20,
             ),

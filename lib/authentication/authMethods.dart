@@ -17,7 +17,7 @@ class AuthMethods {
     required String email,
     required String password,
     required String confirmPassword,
-    //  required Uint8List file,
+    
   }) async {
     String res = "An error occured";
 
@@ -31,7 +31,7 @@ class AuthMethods {
               (password.length > 7) &&
               (contactNumber.length == 10)
 
-          // file != null
+          
           ) {
         UserCredential userDetails = await _auth.createUserWithEmailAndPassword(
             email: email, password: password);
@@ -39,8 +39,6 @@ class AuthMethods {
         print(userDetails.user!.uid);
         // Exclamation is used because, the user can be returned as null
 
-        // adding image to the storage
-        //  String photoUrl =   await FileStorage().uploadImage('profilePics', file, false);
 
         //add user to the database
         _firestore.collection('users').doc(userDetails.user!.uid).set({
@@ -48,9 +46,7 @@ class AuthMethods {
           //'uid': userDetails.user!.uid,
           'contactNumber': contactNumber,
           'email': email,
-          // 'password': password,
-          // 'confirmPassword': confirmPassword,
-          //  'photoUrl': photoUrl,
+          
         });
         res = "signup success";
       } else if (password.length < 8) {
