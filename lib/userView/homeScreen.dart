@@ -100,6 +100,7 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
           ],
         ),
       ),
+      
       body: Column(
         children: [],
       ),
