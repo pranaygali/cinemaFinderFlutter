@@ -1,3 +1,4 @@
+import 'package:cinemafinder/admin/adminHome.dart';
 import 'package:cinemafinder/authentication/authMethods.dart';
 import 'package:cinemafinder/authentication/forgotPassword.dart';
 import 'package:cinemafinder/authentication/loginMethod.dart';
@@ -28,13 +29,34 @@ class _loginAcountState extends State<loginAcount> {
     String res = await LoginMethod().loginUser(
         email: emailController.text, password: passwordController.text);
 
-    if (res == "logged in") {
+    if (res == "logged in" &&
+        emailController.text == "admin@gmail.com" &&
+        passwordController.text == "12345678") {
       print('logged in but not going');
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => movieHomeScreen()),
+        MaterialPageRoute(builder: (context) => adminHomeScreen()),
       );
       showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text('OK'),
+            ),
+          ],
+          title: Text('ALERT'),
+          contentPadding: EdgeInsets.all(20),
+          content: Text('LOGIN SUCCESSFULL'),
+        ),
+      );
+    } else if (res == "logged in") {
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => movieHomeScreen()));
+          showDialog(
         context: context,
         builder: (context) => AlertDialog(
           actions: [
