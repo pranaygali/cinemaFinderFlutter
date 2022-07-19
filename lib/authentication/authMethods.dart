@@ -46,8 +46,8 @@ class AuthMethods {
           'uid': userDetails.user!.uid,
           'contactNumber': contactNumber,
           'email': email,
-          'password': password,
-          'confirmPassword': confirmPassword,
+          // 'password': password,
+          // 'confirmPassword': confirmPassword,
           //  'photoUrl': photoUrl,
         });
         res = "signup success";

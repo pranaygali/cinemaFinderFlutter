@@ -8,6 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:cinemafinder/welcomeScreens/dashBoard.dart';
 import 'package:firebase_core/firebase_core.dart';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
@@ -22,6 +25,27 @@ class cinemaFinder extends StatefulWidget {
 }
 
 class _cinemaFinderState extends State<cinemaFinder> {
+  String fullName = "";
+
+  @override
+  void initState() {
+    super.initState();
+    getUserDetails();
+  }
+
+  void getUserDetails() async {
+    DocumentSnapshot snap = await FirebaseFirestore.instance
+        .collection('users')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .get();
+
+    print(snap.data());
+
+    setState(() {
+      fullName = (snap.data() as Map<String, dynamic>)['fullName'];
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -33,9 +57,22 @@ class _cinemaFinderState extends State<cinemaFinder> {
             // if (snapshot.hasData) {
             //   return movieHomeScreen();
             // }
-            if (snapshot.hasData) {
-              return loginAcount();
-            } else if (snapshot.hasError) {
+            if (snapshot.hasData && fullName == "ADMIN") {
+              print('fullName');
+            } 
+            else if (snapshot.hasData) {
+              return movieHomeScreen();
+            }
+            
+            // if (snapshot.hasData && fullName == "ADMIN") {
+            //   print(fullName);
+            //   if (fullName == "ADMIN") {
+            //     return adminHomeScreen();
+            //   } else{
+            //     return loginAcount();
+            //   }
+            // }
+            else if (snapshot.hasError) {
               return Center(
                 child: Text('${snapshot.error}'),
               );

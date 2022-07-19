@@ -209,12 +209,12 @@ class _createAcountState extends State<createAcount> {
                 //   obscureText: true,
                 // ),
 
-                // textFields(
-                //   textEditingController: passwordController,
-                //   labalText: 'Enter your password',
-                //   textInputType: TextInputType.text,
-                //   isObscure: true,
-                // ),
+                textFields(
+                  textEditingController: passwordController,
+                  labalText: 'Enter your password',
+                  textInputType: TextInputType.text,
+                  isObscure: true,
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -238,12 +238,12 @@ class _createAcountState extends State<createAcount> {
                 //   keyboardType: TextInputType.text,
                 //   obscureText: true,
                 // ),
-                // textFields(
-                //   textEditingController: confirmPasswordController,
-                //   labalText: 'confirm your password',
-                //   textInputType: TextInputType.text,
-                //   isObscure: true,
-                // ),
+                textFields(
+                  textEditingController: confirmPasswordController,
+                  labalText: 'confirm your password',
+                  textInputType: TextInputType.text,
+                  isObscure: true,
+                ),
                 SizedBox(
                   height: 20,
                 ),
