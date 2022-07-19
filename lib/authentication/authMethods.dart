@@ -27,8 +27,10 @@ class AuthMethods {
               email.isNotEmpty &&
               password.isNotEmpty &&
               confirmPassword.isNotEmpty &&
-              (password == confirmPassword)
-          //  && (password.length > 8)
+              (password == confirmPassword) &&
+              (password.length > 7) &&
+              (contactNumber.length == 10)
+
           // file != null
           ) {
         UserCredential userDetails = await _auth.createUserWithEmailAndPassword(
@@ -43,7 +45,7 @@ class AuthMethods {
         //add user to the database
         _firestore.collection('users').doc(userDetails.user!.uid).set({
           'fullName': fullName,
-          'uid': userDetails.user!.uid,
+          //'uid': userDetails.user!.uid,
           'contactNumber': contactNumber,
           'email': email,
           // 'password': password,
@@ -51,8 +53,12 @@ class AuthMethods {
           //  'photoUrl': photoUrl,
         });
         res = "signup success";
+      } else if (password.length < 8) {
+        res = "Password length shouldn't be less than 8 characters";
       } else if (password != confirmPassword) {
         res = "Password mismatch";
+      } else if (contactNumber.length != 10) {
+        res = "Contact number should not be less than 10 digits";
       } else {
         print('Thank you for being oversmart, kindly enter all the details');
         res = "Thank you for being oversmart, kindly enter all the details";

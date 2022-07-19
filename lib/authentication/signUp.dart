@@ -23,9 +23,7 @@ class _createAcountState extends State<createAcount> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
-  Uint8List? _image;
-  // RegExp regex =
-  //     RegExp(r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}$');
+ // Uint8List? _image;
 
   @override
   void dispose() {
@@ -91,14 +89,14 @@ class _createAcountState extends State<createAcount> {
   }
 
 // function to select the image, during the signup
-  void selectImage() async {
-    Uint8List photo =
-        await chooseImage(ImageSource.gallery, ImageSource.camera);
+  // void selectImage() async {
+  //   Uint8List photo =
+  //       await chooseImage(ImageSource.gallery, ImageSource.camera);
 
-    setState(() {
-      _image = photo;
-    });
-  }
+  //   setState(() {
+  //     _image = photo;
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -131,28 +129,28 @@ class _createAcountState extends State<createAcount> {
                   height: 10,
                 ),
 
-                Stack(
-                  children: [
-                    _image != null
-                        ? CircleAvatar(
-                            radius: 64,
-                            backgroundImage: MemoryImage(_image!),
-                          )
-                        : CircleAvatar(
-                            backgroundImage: AssetImage('assets/avatar.jpeg'),
-                            radius: 64,
-                          ),
-                    Positioned(
-                      bottom: -10,
-                      left: 80,
-                      child: IconButton(
-                        onPressed: selectImage,
-                        icon: Icon(Icons.add_a_photo),
-                        color: Colors.red,
-                      ),
-                    ),
-                  ],
-                ),
+                // Stack(
+                //   children: [
+                //     _image != null
+                //         ? CircleAvatar(
+                //             radius: 64,
+                //             backgroundImage: MemoryImage(_image!),
+                //           )
+                //         : CircleAvatar(
+                //             backgroundImage: AssetImage('assets/avatar.jpeg'),
+                //             radius: 64,
+                //           ),
+                //     Positioned(
+                //       bottom: -10,
+                //       left: 80,
+                //       child: IconButton(
+                //         onPressed: selectImage,
+                //         icon: Icon(Icons.add_a_photo),
+                //         color: Colors.red,
+                //       ),
+                //     ),
+                //   ],
+                // ),
 
                 SizedBox(
                   height: 5,
@@ -188,26 +186,7 @@ class _createAcountState extends State<createAcount> {
                 SizedBox(
                   height: 20,
                 ),
-                // TextFormField(
-                //   validator: (value) => value == null || value.length < 8
-                //       ? 'Enter minimum 8 characters'
-                //       : !regex.hasMatch(value)
-                //           ? 'Should contain \nOne Upper Case, \nOne Lower Case, \nOne Digit, \nOne Special Character'
-                //           : null,
-                //   controller: passwordController,
-                //   decoration: InputDecoration(
-                //     // hintText: hintText,
-                //     // labelText: hintText,
-                //     border: OutlineInputBorder(
-                //       borderSide: Divider.createBorderSide(context),
-                //     ),
-                //     filled: false,
-                //     labelText: 'Enter your password',
-                //     contentPadding: EdgeInsets.all(8),
-                //   ),
-                //   keyboardType: TextInputType.text,
-                //   obscureText: true,
-                // ),
+                
 
                 textFields(
                   textEditingController: passwordController,
@@ -218,26 +197,7 @@ class _createAcountState extends State<createAcount> {
                 SizedBox(
                   height: 20,
                 ),
-                // TextFormField(
-                //   validator: (value) => value == null || value.length < 8
-                //       ? 'Enter minimum 8 characters'
-                //       : !regex.hasMatch(value)
-                //           ? 'Should contain \nOne Upper Case, \nOne Lower Case, \nOne Digit, \nOne Special Character'
-                //           : null,
-                //   controller: confirmPasswordController,
-                //   decoration: InputDecoration(
-                //     // hintText: hintText,
-                //     // labelText: hintText,
-                //     border: OutlineInputBorder(
-                //       borderSide: Divider.createBorderSide(context),
-                //     ),
-                //     filled: false,
-                //     labelText: 'Enter your password',
-                //     contentPadding: EdgeInsets.all(8),
-                //   ),
-                //   keyboardType: TextInputType.text,
-                //   obscureText: true,
-                // ),
+               
                 textFields(
                   textEditingController: confirmPasswordController,
                   labalText: 'confirm your password',
@@ -252,15 +212,6 @@ class _createAcountState extends State<createAcount> {
                   height: 60,
                   onPressed: signUpUser,
 
-                  /* 
-                    {
-                       Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => newLogin()),
-                          );
-                          
-                    },
-                    */
                   color: Colors.red,
                   elevation: 0,
                   shape: RoundedRectangleBorder(
