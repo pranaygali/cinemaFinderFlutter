@@ -43,19 +43,7 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
     });
   }
 
-  @override
-  void dispose() {
-    super.dispose();
-    //  searchMovieController.dispose();
-    searchMovieController.removeListener(_searchMovie);
-  }
 
-  @override
-  void didChangeDependencies() {
-    // TODO: implement didChangeDependencies
-    super.didChangeDependencies();
-    MovieLoaded = getMovieStream();
-  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
