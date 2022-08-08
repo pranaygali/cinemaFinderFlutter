@@ -64,5 +64,21 @@ class FireStoreMethods {
     return res;
   }
 
-  
+  //Delete a movie
+
+  Future<String> deleteMovie(String movieid) async {
+    String res = "An error occured";
+    try {
+      await _firestore.collection('movie').doc(movieid).delete();
+      res = 'success';
+      if (res == "success") {
+        print('Movie deleted');
+      } else {
+        print('movie not deleted');
+      }
+    } catch (err) {
+      res = err.toString();
+    }
+    return res;
+  }
 }
