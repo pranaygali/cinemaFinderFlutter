@@ -1,6 +1,4 @@
 import 'package:cinemafinder/admin/addMovies.dart';
-import 'package:cinemafinder/authentication/loginUI.dart';
-import 'package:cinemafinder/authentication/signOutMethod.dart';
 import 'package:flutter/material.dart';
 
 class adminHomeScreen extends StatefulWidget {
@@ -36,11 +34,7 @@ class _adminHomeScreenState extends State<adminHomeScreen> {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () async {
-              await SignOutMethod().signOutUser();
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) => loginAcount()));
-            },
+            onPressed: () {},
             icon: Icon(
               Icons.logout,
               size: 40,
