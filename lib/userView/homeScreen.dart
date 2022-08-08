@@ -43,6 +43,52 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
     });
   }
 
+  @override
+  void dispose() {
+    super.dispose();
+    //  searchMovieController.dispose();
+    searchMovieController.removeListener(_searchMovie);
+  }
+
+  @override
+  void didChangeDependencies() {
+    // TODO: implement didChangeDependencies
+    super.didChangeDependencies();
+    MovieLoaded = getMovieStream();
+  }
+
+  _searchMovie() {
+    print("Home Screen" + searchMovieController.text);
+    searchMoviesList();
+  }
+
+  searchMoviesList() {
+    var showMovies = [];
+    if (searchMovieController.text != "") {
+      for (var movieSnapshot in allMovies) {
+        // var title = Movie.fromSnap(movieSnapshot).name.toLowerCase();
+        var movieName = Movie.fromSnap(movieSnapshot).name.toLowerCase();
+        if (movieName.contains(searchMovieController.text.toLowerCase())) {
+          showMovies.add(movieSnapshot);
+        }
+      }
+    } else {
+      showMovies = List.from(allMovies);
+    }
+    setState(() {
+      resultsMovies = showMovies;
+    });
+  }
+
+  getMovieStream() async {
+    var movieData = await FirebaseFirestore.instance.collection('movie').get();
+    setState(() {
+      allMovies = movieData.docs;
+    });
+    searchMoviesList();
+
+    return "success";
+  }
 
   @override
   Widget build(BuildContext context) {
