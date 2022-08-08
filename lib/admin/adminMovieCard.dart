@@ -56,7 +56,28 @@ class adminMovieCard extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20)),
                     color: Colors.redAccent[400],
                   ),
-                  
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 50,
+                    onPressed: () async {
+                      FireStoreMethods().deleteMovie(snap['movieid']);
+                    },
+                    child: Text(
+                      'Delete',
+                      style: TextStyle(
+                          fontFamily: 'IbarraRealNova',
+                          fontSize: 25,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    elevation: 0,
+                    color: Colors.redAccent[400],
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                  ),
+                ],
+              ),
+            ),
 
             // Column(
             //   //  mainAxisAlignment: MainAxisAlignment.spaceAround,
