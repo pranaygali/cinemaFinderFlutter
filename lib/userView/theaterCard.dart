@@ -26,9 +26,19 @@ class theaterCard extends StatelessWidget {
             children: [
               Text(
                 snap['name'],
+                style: TextStyle(
+                    fontFamily: 'IbarraRealNova',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 30,
+                    color: Colors.white),
               ),
               Text(
                 snap['address'],
+                style: TextStyle(
+                    fontFamily: 'IbarraRealNova',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                    color: Colors.white),
               ),
             ],
           ),
