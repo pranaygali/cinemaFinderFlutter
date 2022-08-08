@@ -26,7 +26,60 @@ class adminMovieCard extends StatelessWidget {
               //  child: Image.network(snap['imageUrl']),
             ),
 
-           
+            Container(
+              //  width: double.infinity,
+              width: 210,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    snap['name'],
+                    style: TextStyle(
+                        fontFamily: 'IbarraRealNova',
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold),
+                  ),
+                  MaterialButton(
+                    minWidth: double.infinity,
+                    height: 50,
+                    onPressed: () {},
+                    elevation: 0,
+                    child: Text(
+                      'Edit',
+                      style: TextStyle(
+                          fontSize: 25,
+                          fontFamily: 'IbarraRealNova',
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white),
+                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    color: Colors.redAccent[400],
+                  ),
+                  
+
+            // Column(
+            //   //  mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     Text(
+            //       'Movie: Acharya',
+            //       style: TextStyle(
+            //           fontFamily: 'IbarraRealNova',
+            //           fontWeight: FontWeight.bold,
+            //           fontSize: 15),
+            //     ),
+            //     Text('Cast: Chiranjeevi, Ram Charan',
+            //         style: TextStyle(
+            //             fontFamily: 'IbarraRealNova',
+            //             fontWeight: FontWeight.bold,
+            //             fontSize: 15)),
+            //     Text('Director: Koratala Siva',
+            //         style: TextStyle(
+            //             fontFamily: 'IbarraRealNova',
+            //             fontWeight: FontWeight.bold,
+            //             fontSize: 15)),
+            //   ],
+            // ),
           ],
         ),
       ),
