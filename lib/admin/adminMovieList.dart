@@ -49,7 +49,19 @@ class _adminMovieListState extends State<adminMovieList> {
         ],
         backgroundColor: Colors.redAccent[400],
       ),
-
+      body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('movie').snapshots(),
+        builder: (context,
+            AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          }
+          return ListView.builder(
+            itemCount: snapshot.data!.docs.length,
+            itemBuilder: (context, index) => adminMovieCard(
+              snap: snapshot.data!.docs[index].data(),
             ),
           );
         },
