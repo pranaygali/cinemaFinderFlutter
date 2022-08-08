@@ -15,19 +15,7 @@ class adminMovieList extends StatefulWidget {
 
 class _adminMovieListState extends State<adminMovieList> {
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true, 
-        leading: IconButton(
-            onPressed: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => addMovie()));
-            },
-            icon: Icon(
-              Icons.add,
-              size: 40,
-            )),
+  
         title: Text(
           'All Movies',
           style: TextStyle(
