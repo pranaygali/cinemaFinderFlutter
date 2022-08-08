@@ -22,45 +22,7 @@ class _splashState extends State<splash> {
         context, MaterialPageRoute(builder: (context) => dashBored()));
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.redAccent,
-      body: Center(
-        child: Column(
-          //crossAxisAlignment: CrossAxisAlignment.center,
-
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Divider(
-              height: 120,
-            ),
-            CircleAvatar(
-              radius: 74,
-              backgroundImage: AssetImage('assets/movies.jpg'),
-            ),
-            Text(
-              'Cinema Finder',
-              style: TextStyle(
-                  fontSize: 34,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white),
-            ),
-            Padding(
-                padding: EdgeInsets.only(top: 350),
-                child: Text(
-                  'From',
-                  style: TextStyle(color: Colors.white, fontSize: 20),
-                )),
-            Padding(
-              padding: EdgeInsets.only(top: 10),
-              child: Text(
-                'Team 3',
-                style: TextStyle(color: Colors.white, fontSize: 30),
-              ),
-            )
-          ],
-        ),
+  
       ),
     );
   }
