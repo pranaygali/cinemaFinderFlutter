@@ -61,9 +61,9 @@ class FireStoreMethods {
       if (name.isEmpty && cast.isEmpty && director.isEmpty) {
         res = "Enter all the details";
        }
-      // if (name.isEmpty && cast.isNotEmpty && director.isNotEmpty) {
-      //   res = "Movie name cannot be empty";
-      // }
+      if (name.isEmpty && cast.isNotEmpty && director.isNotEmpty) {
+        res = "Movie name cannot be empty";
+      }
       // if (name.isNotEmpty && cast.isEmpty && director.isNotEmpty) {
       //   res = "cast field be empty";
       // }
