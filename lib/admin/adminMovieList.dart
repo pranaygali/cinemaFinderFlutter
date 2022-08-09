@@ -18,7 +18,7 @@ class _adminMovieListState extends State<adminMovieList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true, 
+        centerTitle: true,
         leading: IconButton(
             onPressed: () {
               Navigator.push(
