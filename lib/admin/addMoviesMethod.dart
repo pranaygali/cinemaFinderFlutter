@@ -58,9 +58,9 @@ class FireStoreMethods {
         // _firestore.collection('movie').add(movie.toJson());
         res = "Movie uploaded";
       }
-      // if (name.isEmpty && cast.isEmpty && director.isEmpty) {
-      //   res = "Enter all the details";
-      // }
+      if (name.isEmpty && cast.isEmpty && director.isEmpty) {
+        res = "Enter all the details";
+       }
       // if (name.isEmpty && cast.isNotEmpty && director.isNotEmpty) {
       //   res = "Movie name cannot be empty";
       // }
