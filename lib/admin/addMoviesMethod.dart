@@ -64,12 +64,12 @@ class FireStoreMethods {
       if (name.isEmpty && cast.isNotEmpty && director.isNotEmpty) {
         res = "Movie name cannot be empty";
       }
-      // if (name.isNotEmpty && cast.isEmpty && director.isNotEmpty) {
-      //   res = "cast field be empty";
-      // }
-      // if (name.isNotEmpty && cast.isNotEmpty && director.isEmpty) {
-      //   res = "Director field cannot be empty";
-      // }
+      if (name.isNotEmpty && cast.isEmpty && director.isNotEmpty) {
+        res = "cast field be empty";
+      }
+      if (name.isNotEmpty && cast.isNotEmpty && director.isEmpty) {
+        res = "Director field cannot be empty";
+      }
       // if (name.isNotEmpty && cast.isEmpty && director.isEmpty) {
       //   res = "Cast, Director fields cannot be empty";
       // }
