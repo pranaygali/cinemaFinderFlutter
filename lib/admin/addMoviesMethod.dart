@@ -53,19 +53,62 @@ class FireStoreMethods {
       // .collection('movie')
       // .document()
       // .documentID;
-
-      _firestore.collection('movie').doc(movieid.id).set(movie.toJson());
-      // _firestore.collection('movie').add(movie.toJson());
-
-      res = "Movie uploaded";
+      if (name.isNotEmpty && cast.isNotEmpty && director.isNotEmpty) {
+        _firestore.collection('movie').doc(movieid.id).set(movie.toJson());
+        // _firestore.collection('movie').add(movie.toJson());
+        res = "Movie uploaded";
+      }
+      // if (name.isEmpty && cast.isEmpty && director.isEmpty) {
+      //   res = "Enter all the details";
+      // }
+      // if (name.isEmpty && cast.isNotEmpty && director.isNotEmpty) {
+      //   res = "Movie name cannot be empty";
+      // }
+      // if (name.isNotEmpty && cast.isEmpty && director.isNotEmpty) {
+      //   res = "cast field be empty";
+      // }
+      // if (name.isNotEmpty && cast.isNotEmpty && director.isEmpty) {
+      //   res = "Director field cannot be empty";
+      // }
+      // if (name.isNotEmpty && cast.isEmpty && director.isEmpty) {
+      //   res = "Cast, Director fields cannot be empty";
+      // }
+      // if (name.isEmpty && cast.isNotEmpty && director.isEmpty) {
+      //   res = "Name, Director fields cannot be empty";
+      // }
+      // if (name.isEmpty && cast.isEmpty && director.isNotEmpty) {
+      //   res = "Name, Cast fields cannot be empty";
+      // }
     } catch (err) {
       res = err.toString();
     }
     return res;
   }
 
-  //Delete a movie
+  // Future<String> updateMovie(
+  //   String name,
+  //   String cast,
+  //   String director,
+  //   Uint8List file,
+  //   String movieid,
+  // ) async {
+  //   String res = "An error occured";
 
+  //   try {
+
+  //     await _firestore.collection('movie').doc(movieid).update({
+  //       'name': name,
+  //       'director': director,
+  //       'cast': cast,
+  //       'movieid': movieid
+  //     });
+  //   } catch (err) {
+  //     res = err.toString();
+  //   }
+  //   return res;
+  // }
+
+  //Delete a movie
   Future<String> deleteMovie(String movieid) async {
     String res = "An error occured";
     try {
