@@ -76,9 +76,9 @@ class FireStoreMethods {
       if (name.isEmpty && cast.isNotEmpty && director.isEmpty) {
         res = "Name, Director fields cannot be empty";
       }
-      // if (name.isEmpty && cast.isEmpty && director.isNotEmpty) {
-      //   res = "Name, Cast fields cannot be empty";
-      // }
+      if (name.isEmpty && cast.isEmpty && director.isNotEmpty) {
+        res = "Name, Cast fields cannot be empty";
+      }
     } catch (err) {
       res = err.toString();
     }
