@@ -29,7 +29,7 @@ class FireStoreMethods {
     String res = "An error occured";
     try {
       String photoUrl =
-          await ImageStorageMethods().uploadImage('moviePics', file, true);
+          await ImageStorageMethods().uploadImage('movies', file, true);
       // String movieid = const Uuid().v1();
       final movieid = _firestore.collection('movie').doc();
       // final randomid = _firestore.collection('movie').doc();
@@ -60,7 +60,7 @@ class FireStoreMethods {
       }
       if (name.isEmpty && cast.isEmpty && director.isEmpty) {
         res = "Enter all the details";
-       }
+      }
       if (name.isEmpty && cast.isNotEmpty && director.isNotEmpty) {
         res = "Movie name cannot be empty";
       }
@@ -85,28 +85,32 @@ class FireStoreMethods {
     return res;
   }
 
-  // Future<String> updateMovie(
-  //   String name,
-  //   String cast,
-  //   String director,
-  //   Uint8List file,
-  //   String movieid,
-  // ) async {
-  //   String res = "An error occured";
+  //update a movie
+  Future<String> updateMovie(
+    String name,
+    String cast,
+    String director,
+    Uint8List imageUrl,
+    String movieid,
+  ) async {
+    String res = "An error occured";
 
-  //   try {
-
-  //     await _firestore.collection('movie').doc(movieid).update({
-  //       'name': name,
-  //       'director': director,
-  //       'cast': cast,
-  //       'movieid': movieid
-  //     });
-  //   } catch (err) {
-  //     res = err.toString();
-  //   }
-  //   return res;
-  // }
+    try {
+      String photoUrl =
+          await ImageStorageMethods().uploadImage('movies', imageUrl, true);
+      await _firestore.collection('movie').doc(movieid).update({
+        'name': name,
+        'director': director,
+        'cast': cast,
+        'movieid': movieid,
+        'imageUrl': photoUrl,
+      });
+    } catch (err) {
+      res = err.toString();
+      print("The error about upadting the movie is " + res);
+    }
+    return res;
+  }
 
   //Delete a movie
   Future<String> deleteMovie(String movieid) async {
