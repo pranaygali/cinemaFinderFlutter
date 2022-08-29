@@ -1,0 +1,6 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/cinemafinder/BuildConfig.java
+ com.example.cinemafinder.BuildConfig
+com/example/cinemafinder/MainActivity.java
+ com.example.cinemafinder.MainActivity
