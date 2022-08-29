@@ -18,8 +18,13 @@ class movieCard extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => theaterScreen()));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => theaterScreen(
+                            movieName: snap['name'],
+                            movieId: snap['movieid'],
+                          )));
             },
             child: Container(
                 height: 270,
@@ -39,7 +44,7 @@ class movieCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Text(
-                    'Movie: ' + snap['name'],
+                    snap['name'],
                     style: TextStyle(
                         fontFamily: 'IbarraRealNova',
                         fontWeight: FontWeight.bold,
@@ -50,7 +55,7 @@ class movieCard extends StatelessWidget {
                     //  color: Colors.redAccent[400],
                   ),
                   Text(
-                    'Cast: ' + snap['cast'],
+                    snap['cast'],
                     style: TextStyle(
                         fontFamily: 'IbarraRealNova',
                         fontWeight: FontWeight.bold,
@@ -61,7 +66,7 @@ class movieCard extends StatelessWidget {
                     //  color: Colors.redAccent[400],
                   ),
                   Text(
-                    'Director: ' + snap['director'],
+                    snap['director'],
                     style: TextStyle(
                         fontFamily: 'IbarraRealNova',
                         fontWeight: FontWeight.bold,

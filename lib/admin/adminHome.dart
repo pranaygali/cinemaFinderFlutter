@@ -24,7 +24,13 @@ class _adminHomeScreenState extends State<adminHomeScreen> {
             size: 40,
           ),
         ),
-        
+        title: Text(
+          'Welcome Admin',
+          style: TextStyle(
+              fontFamily: 'IbarraRealNova',
+              fontSize: 30,
+              fontWeight: FontWeight.bold),
+        ),
         centerTitle: true,
         actions: [
           IconButton(
