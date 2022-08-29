@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:cinemafinder/authentication/authMethods.dart';
+import 'package:cinemafinder/authentication/signUpMethod.dart';
 import 'package:cinemafinder/authentication/loginUI.dart';
 import 'package:cinemafinder/reusables/imageUpload.dart';
 import 'package:cinemafinder/reusables/snackbars.dart';
