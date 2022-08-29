@@ -14,7 +14,7 @@ class Theater {
     required this.name,
     required this.address,
     //  required this.theaterCapacity,
-    required this.theaId,
+    required this.theaterId,
     //required this.theaterUrl
   });
 
