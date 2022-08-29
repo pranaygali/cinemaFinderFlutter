@@ -30,6 +30,7 @@ class textFields extends StatelessWidget {
       ),
       keyboardType: textInputType,
       obscureText: isObscure,
+
     );
   }
 }

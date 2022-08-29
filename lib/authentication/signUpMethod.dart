@@ -134,6 +134,32 @@ class AuthMethods {
     return res;
   }
 
+  // Future<void> facebookSignIn() async {
+  //   try {
+  //    final facebookLoginResult =  FacebookAuth.instance
+  //         .login(permissions: ["public_profile", "email"]).then((value) {
+  //       FacebookAuth.instance.getUserData().then((userData) async {
+  //         // Navigator.push(
+  //         //     context,
+  //         //     MaterialPageRoute(
+  //         //         builder: (context) => movieHomeScreen()));
+  //       });
+  //     });
+  //     print("Facebook login success" + facebookLoginResult.toString());
+  //   } catch (err) {
+  //     print("The error in the facebook login is " + err.toString());
+  //   }
+  // }
+
+  // Future<void> facebookSignOut() async {
+  //   try {
+  //     await FacebookAuth.instance.logOut().then((value) {});
+  //     print("Facebbok logout success");
+  //   } catch (err) {
+  //     print("The facebook logout error is " + err.toString());
+  //   }
+  // }
+
   Future<void> facebookSignIn(BuildContext context) async {
     try {
       final LoginResult loginResult = await FacebookAuth.instance.login();
@@ -147,4 +173,14 @@ class AuthMethods {
       print("The error in the facebook login is " + e.toString());
     }
   }
+
+  // Future<void> facebookSignOut(BuildContext context) async {
+  //   try {
+  //     await FirebaseAuth.instance.signOut();
+  //     await FacebookAuth.instance.logOut();
+  //     print("Facebook logout success");
+  //   } catch (err) {
+  //     print("The facebook logout error is " + err.toString());
+  //   }
+  // }
 }
