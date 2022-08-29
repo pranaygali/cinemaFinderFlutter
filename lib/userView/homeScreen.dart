@@ -2,6 +2,7 @@ import 'package:cinemafinder/authentication/loginUI.dart';
 import 'package:cinemafinder/authentication/signOutMethod.dart';
 import 'package:cinemafinder/model/movieModel.dart';
 import 'package:cinemafinder/reusables/textFields.dart';
+import 'package:cinemafinder/userView/bookingHistory.dart';
 import 'package:cinemafinder/userView/movieCard.dart';
 import 'package:cinemafinder/userView/userProfile.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,10 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
         if (movieName.contains(searchMovieController.text.toLowerCase())) {
           showMovies.add(movieSnapshot);
         }
+
+        //else {
+        //   Text('No suggestions');
+        // }
       }
     } else {
       showMovies = List.from(allMovies);
@@ -132,8 +137,12 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
             ListTile(
               leading: Icon(Icons.person, color: Colors.white),
               title: Text(
-                '$fullName',
-                style: TextStyle(color: Colors.white),
+                'profile',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'IbarraRealNova',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
               trailing: Icon(Icons.arrow_forward_ios, color: Colors.white),
               onTap: () {
@@ -144,13 +153,35 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
               },
             ),
             ListTile(
+              leading: Icon(Icons.movie, color: Colors.white),
+              title: Text(
+                'Booking History',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'IbarraRealNova',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              trailing: Icon(Icons.arrow_forward_ios, color: Colors.white),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => bookingHistory()),
+                );
+              },
+            ),
+            ListTile(
               leading: Icon(
                 Icons.logout,
                 color: Colors.white,
               ),
               title: const Text(
                 'logout',
-                style: TextStyle(color: Colors.white),
+                style: TextStyle(
+                    color: Colors.white,
+                    fontFamily: 'IbarraRealNova',
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
               trailing: Icon(Icons.arrow_forward_ios, color: Colors.white),
               onTap: () async {
@@ -174,18 +205,30 @@ class _movieHomeScreenState extends State<movieHomeScreen> {
                     borderSide: Divider.createBorderSide(context),
                   ),
                   filled: false,
-                  labelText: 'search movies',
+                  labelText: "search movies",
                   contentPadding: EdgeInsets.all(8),
                 ),
                 keyboardType: TextInputType.text,
               ),
             ),
             Expanded(
-                //  child: Center(),
-                child: ListView.builder(
-                    itemCount: resultsMovies.length,
-                    itemBuilder: (BuildContext context, int index) =>
-                        movieCard(snap: resultsMovies[index]))),
+              //  child: Center(),
+              child: resultsMovies.length == 0
+                  ? Center(
+                      child: Text(
+                        'No results found',
+                        style: TextStyle(
+                          fontFamily: 'IbarraRealNova',
+                          fontSize: 30,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    )
+                  : ListView.builder(
+                      itemCount: resultsMovies.length,
+                      itemBuilder: (BuildContext context, int index) =>
+                          movieCard(snap: resultsMovies[index])),
+            ),
           ],
         ),
       ),
