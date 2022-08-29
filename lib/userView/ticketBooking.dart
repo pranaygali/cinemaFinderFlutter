@@ -264,57 +264,7 @@ class _ticketBookingState extends State<ticketBooking> {
             SizedBox(
               height: 20,
             ),
-            Text(
-              //"${time}".split(' ')[0],
-              "${time}",
-              style: TextStyle(
-                fontSize: 25,
-                fontFamily: 'IbarraRealNova',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SizedBox(
-                height: 20,
-                child: Divider(
-                  height: 20,
-                  color: Colors.red,
-                ),
-              ),
-            ),
-            Text(
-              'Select number of Tickets',
-              style: TextStyle(
-                fontSize: 25,
-                fontFamily: 'IbarraRealNova',
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Container(
-              height: 50,
-              width: 150,
-              child: Row(
-                children: [
-                  IconButton(
-                      onPressed: () {
-                        setState(() {
-                          if (dating != 0) {
-                            dating -= 1;
-                            totalTicketPrice = dating * ticketPrice;
-                            selectedSeats = true;
-                          }
-                        });
-                      },
-                      icon: Icon(Icons.remove)),
-                  Text(
-                    '${dating}',
-                    style: TextStyle(
-                      fontSize: 25,
-                      fontFamily: 'IbarraRealNova',
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+            
                   IconButton(
                       onPressed: () {
                         setState(() {
